@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+
+const steps = [
+  {
+    num: '01',
+    title: 'Collect',
+    body: 'Direct sources only. Brand websites, ezCater portals, public reviews, U.S. Census, BLS wage data, commercial real-estate listings, retail SKU MSRPs. No 3PD markup. No estimates.',
+    detail: ['No DoorDash / UberEats / GrubHub pricing — markup distorts data', 'Direct portal → order-now → aggregator escalation only when the direct site is unreachable', 'Live screenshots + URL stamps on every pull'],
+  },
+  {
+    num: '02',
+    title: 'Verify ×3',
+    body: 'Every price, every figure passes three independent verification checks before it earns a place in the report. We cross-reference time-stamped sources from different days.',
+    detail: ['Source A: brand website current menu', 'Source B: ezCater / aggregator listing (where available)', 'Source C: phone confirmation or franchise system audit'],
+  },
+  {
+    num: '03',
+    title: 'Cite',
+    body: 'Every data point carries a citable URL and verification timestamp. Audit-ready, defendable in a franchise board meeting, traceable two snapshots back.',
+    detail: ['SOURCE chip on every comp item', 'Verification date stamped at the row level', 'No "industry average" filler — we surface the gap honestly'],
+  },
+  {
+    num: '04',
+    title: 'Ship',
+    body: 'Delivered as a structured HTML report + downloadable workbook + executive one-pager. Twice a year, on schedule, no extensions. 14 days from signed order to inbox.',
+    detail: ['HTML dashboard — interactive, scrollable, sharable', 'Excel workbook — every cell traceable, every formula visible', 'One-page executive summary — for the board, the bank, or the franchisor'],
+  },
+];
+---
+<Base
+  title="Method — How every CLA is built"
+  description="No black box. We show our work. Same pipeline runs for every brand, every market, every snapshot."
+>
+  <Nav />
+
+  <section class="method">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / method</span>
+          <span class="dot">·</span>
+          <span>The pipeline</span>
+          <span class="dot">·</span>
+          <span>3× verified</span>
+          <span class="dot">·</span>
+          <span>14-day turnaround</span>
+        </div>
+        <h1>How every <span class="italic">CLA</span> is built.</h1>
+        <p class="lead">No black box. No shortcuts. The same four-step pipeline runs for every brand, every market, every snapshot. Same as the one we run for our own operation.</p>
+      </div>
+
+      <div class="pipeline">
+        {steps.map((s, i) => (
+          <div class="step">
+            <div class="step-num">{s.num}</div>
+            <div class="step-body">
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <ul>
+                {s.detail.map(d => <li>{d}</li>)}
+              </ul>
+            </div>
+            {i < steps.length - 1 && <div class="step-arrow">→</div>}
+          </div>
+        ))}
+      </div>
+
+      <div class="promise">
+        <div class="promise-label">The promise</div>
+        <h2>If we can't <span class="italic">cite it,</span> we don't ship it.</h2>
+        <p>Every number in every CLA traces back to a URL we pulled in the same session. Three sources. One timestamp. Zero "industry averages." That's the entire commitment.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+  <Footer />
+</Base>
+
+<style>
+  .method { padding: 4rem 2rem var(--section); background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .head { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row { margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--hairline); }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300;
+    font-size: 1.08rem; line-height: 1.6; color: var(--body);
+    max-width: 44em; font-variation-settings: "opsz" 20;
+  }
+
+  .pipeline { display: grid; grid-template-columns: 1fr; gap: 0; margin-bottom: 5rem; }
+  .step {
+    display: grid; grid-template-columns: 96px 1fr 36px;
+    gap: 2rem; align-items: start;
+    padding: 2.25rem 0;
+    border-top: 1px solid var(--hairline);
+    position: relative;
+  }
+  .step:last-child { border-bottom: 1px solid var(--hairline); }
+  .step-num {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 4.5rem; line-height: 1; color: var(--periwinkle-deep);
+    font-variation-settings: "opsz" 144;
+  }
+  .step h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.85rem; line-height: 1.1; color: var(--ink);
+    margin-bottom: 0.65rem;
+    font-variation-settings: "opsz" 60;
+  }
+  .step p {
+    font-family: var(--serif); font-weight: 300; font-size: 1.02rem; line-height: 1.6;
+    color: var(--body); margin-bottom: 1rem; max-width: 44em;
+    font-variation-settings: "opsz" 20;
+  }
+  .step ul {
+    list-style: none; padding: 0.75rem 0; margin: 0;
+    border-top: 1px solid var(--hairline);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .step li {
+    font-family: var(--sans); font-size: 0.85rem; line-height: 1.5;
+    padding-left: 1.25rem; position: relative;
+    color: var(--ink-soft); font-weight: 400;
+  }
+  .step li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--periwinkle); font-family: var(--mono); font-weight: 700;
+  }
+  .step-arrow {
+    font-family: var(--serif); font-style: italic;
+    font-size: 2rem; color: var(--tan);
+    align-self: center; text-align: center;
+  }
+
+  .promise {
+    padding: 3rem 2.5rem;
+    background: var(--canvas-warm); border: 1px solid var(--tan);
+    text-align: center;
+  }
+  .promise-label {
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 1.25rem;
+  }
+  .promise h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(1.85rem, 3.5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 72;
+  }
+  .promise h2 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .promise p {
+    font-family: var(--serif); font-weight: 300; font-size: 1rem; line-height: 1.6;
+    color: var(--body); max-width: 40em; margin: 0 auto;
+    font-variation-settings: "opsz" 20;
+  }
+
+  @media (max-width: 800px) {
+    .step { grid-template-columns: 64px 1fr; }
+    .step-num { font-size: 3rem; }
+    .step-arrow { display: none; }
+    .step ul { grid-template-columns: 1fr; }
+  }
+</style>

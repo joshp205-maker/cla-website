@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="Insights — Bi-monthly market intelligence"
+  description="Free bi-monthly intelligence brief. First issue Q3 2026."
+>
+  <Nav />
+
+  <section class="insights">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / insights</span>
+          <span class="dot">·</span>
+          <span>Free brief</span>
+          <span class="dot">·</span>
+          <span>Bi-monthly</span>
+        </div>
+        <h1>Bi-monthly <span class="italic">intelligence,</span><br />sent to your inbox.</h1>
+        <p class="lead">Aggregated, anonymized signals from across every CLA delivered. Pricing moves you should know about. Categories quietly raising. Catering shifts. New comp entries. Free, six times a year.</p>
+      </div>
+
+      <div class="signup-card">
+        <div class="vol-stamp">
+          <div class="vol-label">Vol. 01</div>
+          <div class="vol-date">First issue<br/><span>Q3 2026</span></div>
+        </div>
+
+        <form class="signup" action="/api/subscribe" method="POST">
+          <h3>Reserve your spot.</h3>
+          <p>Drop your email. We'll send the first issue when it ships, and one issue every two months after. Unsubscribe in one click. No CRM hand-off, no list resale.</p>
+          <div class="row">
+            <input type="email" name="email" placeholder="you@brand.com" required />
+            <button type="submit" class="btn-primary">Subscribe<span class="arrow">→</span></button>
+          </div>
+          <div class="privacy">Submitted to a Cloudflare Worker · stored in Cloudflare KV · no third-party CRM</div>
+        </form>
+      </div>
+
+      <div class="archive">
+        <div class="archive-head">
+          <span>Archive</span>
+          <span class="muted">Empty until Q3 2026</span>
+        </div>
+        <div class="archive-empty">
+          <div class="empty-mark">—</div>
+          <div class="empty-msg">
+            The first issue ships in Q3 2026. Past issues will land here on a permanent record.
+            <span class="empty-hint">Each issue is published with a permanent URL, a citation list, and a one-page PDF for archival.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+  .insights { padding: 4rem 2rem var(--section); background: var(--canvas); }
+  .container { max-width: 960px; margin: 0 auto; }
+  .head { margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row { margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--hairline); }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300;
+    font-size: 1.05rem; line-height: 1.6; color: var(--body);
+    max-width: 44em; font-variation-settings: "opsz" 20;
+  }
+
+  .signup-card {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem;
+    background: var(--canvas-warm);
+    border: 1px solid var(--tan);
+    padding: 2.5rem;
+    margin-bottom: 4rem;
+  }
+  .vol-stamp {
+    border-right: 1px solid var(--hairline-strong);
+    padding-right: 2.5rem;
+  }
+  .vol-label {
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 1.5rem;
+  }
+  .vol-date {
+    font-family: var(--serif); font-weight: 400; font-size: 1.05rem; line-height: 1.4;
+    color: var(--ink);
+    font-variation-settings: "opsz" 24;
+  }
+  .vol-date span {
+    display: block; margin-top: 0.3rem;
+    font-style: italic; font-size: 2rem; color: var(--periwinkle-deep);
+    font-variation-settings: "opsz" 72;
+  }
+
+  .signup h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.6rem; line-height: 1.1; color: var(--ink);
+    margin-bottom: 0.6rem;
+    font-variation-settings: "opsz" 48;
+  }
+  .signup p {
+    font-family: var(--serif); font-weight: 300; font-size: 0.96rem; line-height: 1.55;
+    color: var(--body); margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .signup .row { display: flex; gap: 0.75rem; align-items: stretch; flex-wrap: wrap; }
+  .signup input[type="email"] {
+    flex: 1; min-width: 200px; padding: 0 1rem;
+    height: 52px;
+    font-family: var(--serif); font-size: 1rem; color: var(--ink);
+    background: var(--canvas); border: 1px solid var(--ink);
+  }
+  .signup input[type="email"]:focus { outline: none; border-color: var(--periwinkle-deep); }
+  .privacy {
+    margin-top: 0.85rem;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .archive { border: 1px solid var(--hairline); }
+  .archive-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.5rem;
+    background: var(--canvas-warm); border-bottom: 1px solid var(--hairline);
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .archive-head .muted { color: var(--cocoa); font-weight: 400; }
+  .archive-empty {
+    padding: 4rem 2rem; text-align: center;
+  }
+  .empty-mark {
+    font-family: var(--serif); font-size: 3rem; color: var(--tan); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .empty-msg {
+    font-family: var(--serif); font-style: italic; font-size: 1.05rem; line-height: 1.5;
+    color: var(--ink-soft); max-width: 32em; margin: 0 auto;
+    font-variation-settings: "opsz" 24;
+  }
+  .empty-hint {
+    display: block; margin-top: 0.85rem;
+    font-style: normal; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 800px) {
+    .signup-card { grid-template-columns: 1fr; gap: 1.5rem; }
+    .vol-stamp { border-right: none; border-bottom: 1px solid var(--hairline-strong); padding: 0 0 1.25rem 0; }
+  }
+</style>

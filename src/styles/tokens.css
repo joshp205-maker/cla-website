@@ -1,0 +1,45 @@
+:root {
+  /* Surfaces */
+  --canvas: #fefdfa;
+  --canvas-warm: #faf6ed;
+  --paper: #fefdfa;
+  --paper-warm: #f4f1ec;
+
+  /* Brand */
+  --periwinkle: #7d8fb8;
+  --periwinkle-deep: #5a6d9a;
+  --periwinkle-ink: #3d5070;
+
+  /* Warmth */
+  --tan: #b89f7c;
+  --tan-soft: #e7ddc8;
+  --cocoa: #7a5a3d;
+
+  /* Ink */
+  --ink: #0a0a0a;
+  --ink-soft: #2a2620;
+  --body: #3c3530;
+  --muted: #6e655c;
+  --grey: #9a948b;
+
+  /* Hairlines */
+  --hairline: rgba(10, 10, 10, 0.1);
+  --hairline-strong: rgba(10, 10, 10, 0.2);
+
+  /* Dark band */
+  --dark: #1a1814;
+  --dark-elev: #28241e;
+
+  /* Alert (use ≤ 2%) */
+  --orange: #e85d1c;
+  --orange-soft: rgba(232, 93, 28, 0.08);
+
+  /* Type stacks */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Layout */
+  --section: 6rem;
+  --max: 1400px;
+}

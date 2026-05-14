@@ -1,0 +1,20 @@
+name = "cla-website"
+compatibility_date = "2025-01-15"
+pages_build_output_dir = "./dist"
+
+# KV namespaces for lead capture + newsletter subscribers
+# Provision in Cloudflare dashboard, then replace the placeholder IDs.
+# wrangler kv namespace create LEADS_KV
+# wrangler kv namespace create SUBSCRIBERS_KV
+
+[[kv_namespaces]]
+binding = "LEADS_KV"
+id = "REPLACE_WITH_LEADS_KV_ID"
+
+[[kv_namespaces]]
+binding = "SUBSCRIBERS_KV"
+id = "REPLACE_WITH_SUBSCRIBERS_KV_ID"
+
+# Email recipients — set via dashboard secrets, not committed here:
+#   wrangler pages secret put LEAD_NOTIFY_TO
+#   wrangler pages secret put LEAD_NOTIFY_FROM

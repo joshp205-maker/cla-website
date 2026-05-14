@@ -1,0 +1,139 @@
+---
+---
+<section class="consultant">
+  <div class="container">
+    <div class="grid">
+      <div class="copy">
+        <div class="label">For Consultants &amp; Advisory Firms</div>
+        <h2>The <span class="italic">white-label CLA.</span><br />Your masthead. Our engine.</h2>
+        <p>Deliver an item-level competitive landscape analysis under your firm's brand. Same depth. Same 14-day turnaround. Same triple-verified data. <strong>Custom-branded for your client.</strong></p>
+        <ul>
+          <li>Full Core CLA scope — 5 modules per analysis</li>
+          <li>Your logo, your colors, your typography on every page</li>
+          <li>NDA &amp; reseller agreement included</li>
+          <li>Bi-annual cadence — recurring revenue for your firm</li>
+          <li>ezCater-only standalone available for catering-focused practices</li>
+        </ul>
+        <div class="ctas">
+          <a href="/consult" class="btn-primary">Request Consultant Demo<span class="arrow">→</span></a>
+          <a href="/programs" class="link-uc">See branding gallery<span class="arrow">›</span></a>
+        </div>
+      </div>
+
+      <div class="preview">
+        <div class="cover-stack">
+          <div class="cover back">
+            <div class="mast">PARTNER FIRM <span class="bullet">●</span> CLA</div>
+            <div class="mark">YF</div>
+            <div class="title">Competitive<br /><em>Landscape</em><br />Analysis</div>
+            <div class="ft">VOL. 02 · 2026 · YOUR CLIENT BRAND</div>
+          </div>
+          <div class="cover front">
+            <div class="mast">YOUR FIRM <span class="bullet">●</span> CLA</div>
+            <div class="mark">AB</div>
+            <div class="title">Competitive<br /><em>Landscape</em><br />Analysis</div>
+            <div class="ft">VOL. 01 · 2026 · CLIENT BRAND NAME</div>
+          </div>
+        </div>
+        <div class="cap">Two examples · partner-branded covers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .consultant {
+    padding: var(--section) 2rem;
+    background: var(--canvas-warm);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+  .label {
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 1.25rem;
+    padding-left: 0.85rem; border-left: 2px solid var(--periwinkle);
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 72;
+    max-width: 12em;
+  }
+  h2 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  p {
+    font-family: var(--serif); font-weight: 300; font-size: 1.05rem; line-height: 1.6;
+    color: var(--body); margin-bottom: 1.5rem; max-width: 36em;
+    font-variation-settings: "opsz" 20;
+  }
+  p strong { font-weight: 500; color: var(--ink); }
+  ul {
+    list-style: none; padding: 0.85rem 0; margin: 0 0 2rem;
+    border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+  }
+  li {
+    font-family: var(--sans); font-size: 0.92rem; line-height: 1.45;
+    padding: 0.5rem 0 0.5rem 1.5rem; position: relative;
+    color: var(--body); font-weight: 300;
+    border-bottom: 1px dotted var(--hairline);
+  }
+  li:last-child { border-bottom: none; }
+  li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--periwinkle); font-weight: 700; font-family: var(--mono);
+  }
+  .ctas { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
+  .preview { position: relative; padding: 1.5rem; }
+  .cover-stack { position: relative; aspect-ratio: 4/3; }
+  .cover {
+    position: absolute; width: 62%; aspect-ratio: 3/4;
+    padding: 1.5rem 1.25rem;
+    box-shadow: 0 18px 40px rgba(10,10,10,0.18), 0 4px 10px rgba(10,10,10,0.12);
+    display: flex; flex-direction: column;
+  }
+  .cover.back {
+    top: 6%; right: 4%; transform: rotate(4deg);
+    background: var(--paper-warm); border-top: 4px solid var(--cocoa);
+  }
+  .cover.front {
+    bottom: 6%; left: 4%; transform: rotate(-3deg);
+    background: var(--canvas); border-top: 4px solid var(--periwinkle); z-index: 2;
+  }
+  .mast {
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 1rem;
+    padding-bottom: 0.4rem; border-bottom: 1px solid var(--hairline);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .mast .bullet { color: var(--periwinkle); }
+  .mark {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 2.2rem; line-height: 1; color: var(--ink);
+    align-self: flex-start;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--ink);
+    font-variation-settings: "opsz" 72;
+    margin-bottom: 1.5rem;
+  }
+  .cover.back .mark { color: var(--cocoa); border-color: var(--cocoa); }
+  .title {
+    font-family: var(--serif); font-weight: 400; font-size: 1.4rem; line-height: 1.05;
+    color: var(--ink); flex: 1; letter-spacing: -0.015em;
+    font-variation-settings: "opsz" 48;
+  }
+  .title em { font-style: italic; color: var(--periwinkle-deep); }
+  .cover.back .title em { color: var(--cocoa); }
+  .ft {
+    font-family: var(--mono); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.16em;
+    color: var(--muted); margin-top: auto; padding-top: 0.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .cap {
+    margin-top: 1.5rem; text-align: center;
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>

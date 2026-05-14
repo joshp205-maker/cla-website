@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="Schedule a free 20-minute consult — Competitive Landscape Analysis"
+  description="Twenty minutes. No card on file. A real conversation about your market."
+>
+  <Nav />
+
+  <section class="consult">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / consult</span>
+          <span class="dot">·</span>
+          <span>20 minutes</span>
+          <span class="dot">·</span>
+          <span>No card on file</span>
+        </div>
+        <h1>Schedule your free <span class="italic">20-minute</span> consult.</h1>
+        <p class="lead">Tell me a bit about your operation. We'll review where a CLA fits, walk through a real report, and answer pricing questions on the call. After the call you'll receive a recap email and, if it's a fit, a QuickBooks invoice for your selected program.</p>
+      </div>
+
+      <div class="grid">
+        <div class="cal">
+          <div class="cal-head">
+            <span>Pick a time</span>
+            <span class="cal-meta">Google Calendar · Eastern Time</span>
+          </div>
+          <div class="cal-embed">
+            <div class="placeholder">
+              <div class="placeholder-icon">→</div>
+              <div class="placeholder-text">
+                Google Calendar appointment widget mounts here.<br/>
+                <span class="muted">Replace this block with your appointment booking URL once configured.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="form" id="consult-form" action="/api/lead" method="POST">
+          <div class="form-head">
+            <span>Pre-call notes</span>
+            <span class="cal-meta">Optional · helps me come prepared</span>
+          </div>
+          <label>
+            <span class="lbl">Your name</span>
+            <input type="text" name="name" placeholder="Full name" required />
+          </label>
+          <label>
+            <span class="lbl">Brand / operating company</span>
+            <input type="text" name="brand" placeholder="Brand name" required />
+          </label>
+          <label>
+            <span class="lbl">Email</span>
+            <input type="email" name="email" placeholder="you@brand.com" required />
+          </label>
+          <label>
+            <span class="lbl">Role</span>
+            <select name="role" required>
+              <option value="">Pick one…</option>
+              <option>Multi-unit operator</option>
+              <option>Franchisor</option>
+              <option>Franchisee</option>
+              <option>Consultant / Advisory</option>
+              <option>Independent operator</option>
+            </select>
+          </label>
+          <label>
+            <span class="lbl"># Units / locations</span>
+            <input type="text" name="units" placeholder="1, 12, 60…" />
+          </label>
+          <label>
+            <span class="lbl">Top question / concern</span>
+            <textarea name="concern" rows="3" placeholder="e.g. 'underpriced on rolls', 'expanding to Tampa', 'considering ezCater'"></textarea>
+          </label>
+          <button type="submit" class="btn-primary">
+            Send Notes<span class="arrow">→</span>
+          </button>
+          <div class="privacy">Submitted to a Cloudflare Worker that emails me directly. No CRM, no list-broking, no spam.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+  .consult { padding: 4rem 2rem var(--section); background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .head { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row {
+    margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+    max-width: 18em;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300;
+    font-size: 1.08rem; line-height: 1.6; color: var(--body);
+    max-width: 44em;
+    font-variation-settings: "opsz" 20;
+  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+
+  .cal, .form {
+    background: var(--canvas);
+    border: 1px solid var(--tan);
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+  .cal-head, .form-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 0.85rem; margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--ink);
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .cal-meta { color: var(--muted); font-size: 0.62rem; }
+  .cal-embed { aspect-ratio: 1.15/1; background: var(--canvas-warm); border: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; }
+  .placeholder { text-align: center; padding: 2rem; max-width: 22em; }
+  .placeholder-icon { font-family: var(--mono); font-size: 1.4rem; color: var(--periwinkle); margin-bottom: 0.75rem; }
+  .placeholder-text { font-family: var(--serif); font-style: italic; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); }
+  .placeholder-text .muted { display: block; margin-top: 0.6rem; font-style: normal; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .form label { display: block; margin-bottom: 0.85rem; }
+  .lbl {
+    display: block; margin-bottom: 0.3rem;
+    font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cocoa);
+  }
+  .form input, .form select, .form textarea {
+    width: 100%; padding: 0.7rem 0.85rem;
+    font-family: var(--serif); font-size: 0.95rem; color: var(--ink);
+    background: var(--canvas-warm); border: 1px solid var(--hairline);
+    border-radius: 0;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .form input:focus, .form select:focus, .form textarea:focus {
+    outline: none; border-color: var(--periwinkle-deep); background: var(--canvas);
+  }
+  .form button.btn-primary { margin-top: 0.5rem; }
+  .privacy {
+    margin-top: 0.85rem;
+    font-family: var(--serif); font-style: italic; font-size: 0.78rem; line-height: 1.4;
+    color: var(--muted);
+  }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

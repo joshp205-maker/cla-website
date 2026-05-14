@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+
+const programs = [
+  {
+    tag: 'Full scope · Most chosen',
+    name: 'Core CLA',
+    italic: '',
+    scope: 'All five modules — pricing audit, trade-area map, real-estate & labor benchmarks, guest sentiment, ezCater. The complete competitive picture.',
+    meta: ['Brand setup', '2 analyses / yr', '14-day delivery'],
+    featured: true,
+  },
+  {
+    tag: 'Catering-only',
+    name: 'ezCater Analysis',
+    italic: '',
+    scope: 'Module 05 standalone. Per-person pricing, min-order & delivery fees, package structure analysis and recommendations.',
+    meta: ['Brand setup', '2 analyses / yr', '14-day delivery'],
+    featured: false,
+  },
+  {
+    tag: 'For consultants',
+    name: 'White-Label CLA',
+    italic: '',
+    scope: 'Full Core CLA scope, partner-branded. Deliver under your firm\u2019s masthead with your colors and logos. Recurring revenue, built in.',
+    meta: ['Brand setup', '2 analyses / yr', 'NDA included'],
+    featured: false,
+  },
+  {
+    tag: 'For consultants',
+    name: 'White-Label ezCater',
+    italic: '',
+    scope: 'Catering-only scope, partner-branded. For consultants serving operators on the catering channel.',
+    meta: ['Brand setup', '2 analyses / yr', 'NDA included'],
+    featured: false,
+  },
+];
+---
+<Base
+  title="Programs — Competitive Landscape Analysis"
+  description="Four ways to subscribe. Brand setup, bi-annual delivery, cancel auto-renewal anytime."
+>
+  <Nav />
+
+  <section class="programs">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / programs</span>
+          <span class="dot">·</span>
+          <span>Four programs</span>
+          <span class="dot">·</span>
+          <span>Cancel anytime</span>
+        </div>
+        <h1>Pick your <span class="italic">program.</span></h1>
+        <p class="lead">All programs include a brand setup and your bi-annual snapshots for one year. Cancel auto-renewal anytime. Pricing reviewed on the free 20-minute consult.</p>
+      </div>
+
+      <div class="grid">
+        {programs.map(p => (
+          <article class={`card ${p.featured ? 'featured' : ''}`}>
+            <div class="tag">{p.tag}</div>
+            <h3>{p.name}</h3>
+            <p class="scope">{p.scope}</p>
+            <div class="meta">
+              {p.meta.map(m => <span>{m}</span>)}
+            </div>
+            <a href="/consult" class="cta">Schedule Consult →</a>
+            <div class="note">Pricing reviewed on call</div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+  <Footer />
+</Base>
+
+<style>
+  .programs { padding: 4rem 2rem var(--section); background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .head { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row {
+    margin-bottom: 1.5rem; padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--hairline);
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300;
+    font-size: 1.08rem; line-height: 1.6; color: var(--body);
+    max-width: 44em; font-variation-settings: "opsz" 20;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+  .card {
+    background: var(--canvas);
+    border: 1px solid var(--tan);
+    padding: 2rem 1.75rem;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: var(--periwinkle); box-shadow: 0 4px 16px rgba(125,143,184,0.12); }
+  .card.featured { border-color: var(--periwinkle); border-width: 2px; }
+  .card.featured::before {
+    content: "MOST CHOSEN"; position: absolute; top: -11px; left: 16px;
+    background: var(--periwinkle); color: #fff; padding: 3px 10px;
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.18em; font-weight: 700;
+  }
+  .tag {
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 0.6rem;
+  }
+  .card h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.7rem; line-height: 1.1; letter-spacing: -0.015em;
+    color: var(--ink); margin-bottom: 0.85rem;
+    font-variation-settings: "opsz" 48;
+  }
+  .card h3 em { font-style: italic; color: var(--periwinkle-deep); }
+  .scope {
+    font-family: var(--serif); font-weight: 300; font-size: 0.96rem; line-height: 1.55;
+    color: var(--body); margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .meta {
+    display: flex; gap: 1.25rem; flex-wrap: wrap;
+    padding: 0.85rem 0; margin-bottom: 1.25rem;
+    border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta span::before { content: "● "; color: var(--periwinkle); }
+  .cta {
+    display: inline-flex; align-items: center;
+    padding: 0.7rem 1.1rem;
+    font-family: var(--sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid var(--ink); color: var(--ink);
+    transition: background 0.2s, color 0.2s;
+  }
+  .card.featured .cta { background: var(--periwinkle); border-color: var(--periwinkle); color: #fff; }
+  .cta:hover { background: var(--ink); color: var(--canvas); }
+  .card.featured .cta:hover { background: var(--periwinkle-deep); border-color: var(--periwinkle-deep); }
+  .note {
+    margin-top: 0.85rem;
+    font-family: var(--serif); font-style: italic; font-size: 0.82rem;
+    color: var(--cocoa);
+  }
+
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

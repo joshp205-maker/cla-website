@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="About — Competitive Landscape Analysis"
+  description="Built by an operator. Used in a real multi-unit operation. Then offered to other operators."
+>
+  <Nav />
+
+  <section class="about">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / about</span>
+          <span class="dot">·</span>
+          <span>Operator-built</span>
+          <span class="dot">·</span>
+          <span>Year 04</span>
+        </div>
+        <h1>Built in the <span class="italic">back office.</span></h1>
+        <p class="lead">Not a research firm. Not an MBA consultancy. A multi-unit operator who got tired of pricing decisions without data — built the tool he needed, used it for three years, then opened it up to other operators.</p>
+      </div>
+
+      <div class="story">
+        <div class="story-col">
+          <h2>The why.</h2>
+          <p>
+            Pricing decisions used to be guesswork. Industry averages were stale before they arrived. Consultant retainers cost more than the lift any single decision could deliver. So we built our own pipeline — direct sources, triple verification, item-level granularity — and we ran it ourselves, every six months, for three years.
+          </p>
+          <p>
+            It worked. Margins moved. Catering positioning sharpened. Real-estate decisions got grounded. Wage negotiations stopped feeling like negotiations.
+          </p>
+          <p>
+            Then other operators started asking. So here it is — same tool, same pipeline, your brand.
+          </p>
+        </div>
+        <div class="story-col">
+          <h2>The why-not.</h2>
+          <ul>
+            <li><strong>Not a research firm.</strong> We don't sell broad industry trends. We sell your trade area, your menu, your wages.</li>
+            <li><strong>Not a generalist consultant.</strong> Hourly billing for one-shot decks isn't this. The CLA is a recurring, structured, source-cited deliverable.</li>
+            <li><strong>Not a data vendor.</strong> Raw feeds aren't useful at 2 PM on a Tuesday. The CLA is built to be acted on.</li>
+            <li><strong>Not aggregated. Not averaged.</strong> Your store, your comps, your real numbers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="founder">
+        <div class="founder-card">
+          <div class="founder-label">Founder</div>
+          <div class="founder-name">Josh Patrick</div>
+          <div class="founder-role">Multi-unit operator · Rock N Roll Sushi · Bagels &amp; Co</div>
+          <p class="founder-bio">
+            Built the original CLA pipeline to make pricing decisions for his own multi-unit operations. Refined it over three years of bi-annual snapshots across multiple markets. Opened it to other operators in 2026 because the people asking deserved the same advantage.
+          </p>
+          <div class="founder-credentials">
+            <span>P&amp;L on the desk every Monday</span>
+            <span>Not "PhD economist"</span>
+            <span>Operator-grade rigor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+  <Footer />
+</Base>
+
+<style>
+  .about { padding: 4rem 2rem var(--section); background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .head { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row { margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--hairline); }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300;
+    font-size: 1.1rem; line-height: 1.6; color: var(--body);
+    max-width: 44em; font-variation-settings: "opsz" 20;
+  }
+
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-bottom: 4rem; }
+  .story-col h2 {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 2rem; color: var(--periwinkle-deep); margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 60;
+  }
+  .story-col p {
+    font-family: var(--serif); font-weight: 300; font-size: 1rem; line-height: 1.7;
+    color: var(--body); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .story-col ul { list-style: none; padding: 0; margin: 0; }
+  .story-col li {
+    font-family: var(--serif); font-weight: 300; font-size: 0.98rem; line-height: 1.55;
+    color: var(--body); padding: 0.8rem 0; border-bottom: 1px solid var(--hairline);
+    font-variation-settings: "opsz" 20;
+  }
+  .story-col li:last-child { border-bottom: none; }
+  .story-col li strong { font-family: var(--sans); font-weight: 600; color: var(--ink); }
+
+  .founder { display: flex; justify-content: center; }
+  .founder-card {
+    background: var(--canvas-warm);
+    border: 1px solid var(--tan);
+    padding: 2.5rem 2.5rem;
+    max-width: 720px; width: 100%;
+    position: relative;
+  }
+  .founder-card::before {
+    content: ""; position: absolute; top: -6px; left: -6px; width: 30px; height: 30px;
+    border-top: 2px solid var(--ink); border-left: 2px solid var(--ink);
+  }
+  .founder-card::after {
+    content: ""; position: absolute; bottom: -6px; right: -6px; width: 30px; height: 30px;
+    border-bottom: 2px solid var(--ink); border-right: 2px solid var(--ink);
+  }
+  .founder-label {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 0.75rem;
+  }
+  .founder-name {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 2.5rem; line-height: 1; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 0.4rem;
+    font-variation-settings: "opsz" 96;
+  }
+  .founder-role {
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem; border-bottom: 1px solid var(--hairline);
+  }
+  .founder-bio {
+    font-family: var(--serif); font-weight: 300; font-size: 1rem; line-height: 1.65;
+    color: var(--body); margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .founder-credentials {
+    display: flex; gap: 0.85rem; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .founder-credentials span {
+    padding: 0.4rem 0.75rem;
+    background: var(--canvas); border: 1px solid var(--hairline);
+  }
+  .founder-credentials span::before { content: "✓ "; color: var(--periwinkle-deep); font-weight: 700; }
+
+  @media (max-width: 800px) {
+    .story { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+---
+<section class="cta-band">
+  <div class="container">
+    <div class="label">Schedule your free consult</div>
+    <h2>Twenty minutes. <span class="italic">No card on file.</span><br />A real conversation about your market.</h2>
+    <p>Tell me about your operation. We'll review where a CLA fits, walk through real reports, and answer pricing questions on the call.</p>
+    <a href="/consult" class="btn">Book Consult<span>→</span></a>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background: var(--dark); color: #fff;
+    padding: var(--section) 2rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-band::before, .cta-band::after {
+    content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+    width: 80px; height: 1px; background: var(--periwinkle);
+  }
+  .cta-band::before { left: 8%; }
+  .cta-band::after { right: 8%; }
+  .container { max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+  .label {
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--tan-soft); margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.85rem); line-height: 1.08; letter-spacing: -0.02em;
+    color: #fff; margin-bottom: 1.25rem;
+    font-variation-settings: "opsz" 72;
+  }
+  h2 .italic { font-style: italic; color: var(--periwinkle); }
+  p {
+    font-family: var(--serif); font-weight: 300; font-size: 1.05rem; line-height: 1.65;
+    color: rgba(255,255,255,0.75); margin-bottom: 2.5rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .btn {
+    height: 56px; padding: 0 2rem;
+    background: var(--canvas); color: var(--ink);
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid var(--canvas);
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 0.7rem;
+  }
+  .btn:hover { background: var(--periwinkle); border-color: var(--periwinkle); color: #fff; }
+</style>

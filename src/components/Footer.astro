@@ -1,0 +1,74 @@
+---
+const groups = [
+  {
+    title: 'Programs',
+    items: ['Core CLA', 'ezCater Analysis', 'White-Label CLA', 'White-Label ezCater'],
+  },
+  {
+    title: 'Resources',
+    items: ['Sample CLA', 'Method', 'Insights', 'About'],
+  },
+  {
+    title: 'Contact',
+    items: ['Schedule consult', 'hello@cl-analysis.com', 'Privacy', 'Terms'],
+  },
+];
+---
+<footer>
+  <div class="container">
+    <div class="top">
+      <div class="brand">
+        <div class="name">Competitive Landscape Analysis<span class="mark"> ◆</span></div>
+        <p class="blurb">Item-level competitive pricing intelligence for multi-unit restaurant brands. Built by operators. Delivered every six months.</p>
+      </div>
+      {groups.map(g => (
+        <div>
+          <h5>{g.title}</h5>
+          <ul>
+            {g.items.map(i => <li>{i}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="bot">
+      <span>© 2026 cl-analysis.com</span>
+      <span class="sig">Built by operators · For operators</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer { background: var(--canvas-warm); padding: 4rem 2rem 2rem; color: var(--body); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .top {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem;
+    padding-bottom: 3rem; border-bottom: 1px solid var(--hairline);
+  }
+  .brand .name {
+    font-family: var(--serif); font-weight: 500; font-size: 1.1rem; color: var(--ink);
+    margin-bottom: 0.8rem; letter-spacing: -0.005em;
+  }
+  .brand .name .mark { color: var(--orange); font-style: italic; }
+  .blurb {
+    font-family: var(--serif); font-weight: 300; font-size: 0.95rem; line-height: 1.6;
+    color: var(--body); max-width: 26em;
+    font-variation-settings: "opsz" 18;
+  }
+  h5 {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink); margin-bottom: 1.25rem;
+  }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li {
+    font-size: 0.88rem; line-height: 2; color: var(--body); cursor: pointer;
+    transition: color 0.2s;
+  }
+  li:hover { color: var(--periwinkle-deep); }
+  .bot {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1.5rem;
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .bot .sig { color: var(--ink); }
+</style>

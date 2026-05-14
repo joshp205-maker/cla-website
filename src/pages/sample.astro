@@ -1,0 +1,314 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import TradeMap from '../components/TradeMap.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="See a real CLA — Brand-X, Davie FL (anonymized)"
+  description="Anonymized walk-through of a real CLA. First three modules public. Email unlocks the rest."
+>
+  <Nav />
+
+  <section class="sample">
+    <div class="container">
+      <div class="head">
+        <div class="meta-row">
+          <span>cl-analysis.com / sample</span>
+          <span class="dot">·</span>
+          <span>Anonymized</span>
+          <span class="dot">·</span>
+          <span>Brand-X · Davie FL</span>
+          <span class="dot">·</span>
+          <span>Vol. 01 · 2026</span>
+        </div>
+        <h1>See a real <span class="italic">CLA.</span></h1>
+        <p class="lead">Modules 01–03 below. Brand identifying details masked, every other figure pulled from a real delivered CLA. Modules 04–06 (Sentiment, ezCater, Packaged Items) unlock with a single email.</p>
+      </div>
+
+      <!-- MODULE 01 — pricing table preview -->
+      <article class="module-block">
+        <header>
+          <span class="mod-num">01</span>
+          <div>
+            <div class="mod-tag">Menu &amp; Pricing</div>
+            <h2>Item-level pricing audit</h2>
+          </div>
+          <span class="mod-status">Public</span>
+        </header>
+        <div class="block-body">
+          <div class="ranking-table">
+            <div class="rt-head">
+              <span>Menu Item</span><span class="r">You</span><span class="r">Mkt avg</span><span class="r">Δ</span><span class="r">Tier</span><span class="r">Verified</span>
+            </div>
+            {[
+              ['California Roll', '7.95', '8.75', '+0.80', 'T2 / 4', '2026.04.18'],
+              ['Spicy Tuna Roll', '8.50', '9.10', '+0.60', 'T2 / 4', '2026.04.18'],
+              ['Rainbow Roll', '13.95', '14.20', '+0.25', 'T2 / 4', '2026.04.20'],
+              ['Volcano Roll', '12.50', '11.80', '−0.70', 'T3 / 4', '2026.04.20'],
+              ['Dragon Roll', '14.50', '15.10', '+0.60', 'T2 / 4', '2026.04.18'],
+              ['Lobster Roll', '17.95', '18.40', '+0.45', 'T2 / 4', '2026.04.22'],
+              ['Hibachi Chicken', '13.95', '14.85', '+0.90', 'T2 / 4', '2026.04.22'],
+              ['Hibachi Shrimp', '15.95', '16.50', '+0.55', 'T2 / 4', '2026.04.22'],
+            ].map(([item, you, mkt, delta, tier, ver]) => (
+              <div class="rt-row">
+                <span>{item}</span>
+                <span class="r v">{you}</span>
+                <span class="r m">{mkt}</span>
+                <span class:list={['r', 'd', String(delta).startsWith('+') ? 'up' : 'down']}>{delta}</span>
+                <span class="r">{tier}</span>
+                <span class="r ver">{ver}</span>
+              </div>
+            ))}
+          </div>
+          <div class="insight-flag">
+            <strong>Insight:</strong> 7 menu items priced below market average. Estimated annual uplift if repriced to market floor: <em>+$38,400 / unit</em>.
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 02 — trade area map -->
+      <article class="module-block">
+        <header>
+          <span class="mod-num">02</span>
+          <div>
+            <div class="mod-tag">Market &amp; Trade Area</div>
+            <h2>5-mile competitive map</h2>
+          </div>
+          <span class="mod-status">Public</span>
+        </header>
+        <div class="block-body">
+          <div class="sample-map-wrap">
+            <TradeMap id="sample-trade-map" />
+            <div class="map-legend">
+              <div class="leg-row"><span class="leg-dot you-dot"></span> Subject — Brand-X · Davie FL</div>
+              <div class="leg-row"><span class="leg-dot comp-dot"></span> Comp set — 10 direct comps, 5-mile radius</div>
+              <div class="leg-row"><span class="leg-dash"></span> 5-mile trade-area boundary</div>
+            </div>
+          </div>
+          <div class="insight-flag">
+            <strong>Insight:</strong> Market saturation grade <em>B+</em>. Closest direct comp at 1.4 mi (Hibachi Express). 2 new entrants within 8 miles since last snapshot.
+          </div>
+        </div>
+      </article>
+
+      <!-- MODULE 03 — Local Wages -->
+      <article class="module-block">
+        <header>
+          <span class="mod-num">03</span>
+          <div>
+            <div class="mod-tag">Local Wages &amp; Cost Context</div>
+            <h2>Pay benchmarks by position</h2>
+          </div>
+          <span class="mod-status">Public</span>
+        </header>
+        <div class="block-body">
+          <div class="wages-grid">
+            {[
+              { pos: 'Server / FOH', you: '$13.50', mkt: '$14.20', delta: '−$0.70' },
+              { pos: 'Line Cook / BOH', you: '$17.00', mkt: '$16.40', delta: '+$0.60' },
+              { pos: 'Sushi Chef', you: '$22.00', mkt: '$23.50', delta: '−$1.50' },
+              { pos: 'Manager', you: '$24.00', mkt: '$24.80', delta: '−$0.80' },
+              { pos: 'Dishwasher', you: '$15.00', mkt: '$14.50', delta: '+$0.50' },
+              { pos: 'Asst. Manager', you: '$19.50', mkt: '$19.20', delta: '+$0.30' },
+            ].map(w => (
+              <div class="wage-cell">
+                <div class="wc-pos">{w.pos}</div>
+                <div class="wc-row"><span>You</span><span class="v">{w.you}</span></div>
+                <div class="wc-row"><span>Market</span><span class="m">{w.mkt}</span></div>
+                <div class={`wc-delta ${w.delta.startsWith('+') ? 'up' : 'down'}`}>{w.delta}</div>
+              </div>
+            ))}
+          </div>
+          <div class="insight-flag">
+            <strong>Insight:</strong> Sushi Chef pay <em>$1.50 below market</em> — flight-risk flag in tight market. FOH also under market — consider $0.50 lift across server roster ahead of summer turnover.
+          </div>
+        </div>
+      </article>
+
+      <!-- GATE -->
+      <div class="gate" id="gate">
+        <div class="gate-fade"></div>
+        <div class="gate-card">
+          <div class="gate-label">Unlock Modules 04 · 05 · 06</div>
+          <h3>One email. Instant access.</h3>
+          <p>Modules 04 (Sentiment), 05 (ezCater), and 06 (Packaged Items) load below — including the live competitive comments, per-person catering breakdowns, and per-SKU retail margin opportunities.</p>
+          <form action="/api/unlock-sample" method="POST" class="gate-form">
+            <input type="email" name="email" placeholder="you@brand.com" required />
+            <button type="submit" class="btn-primary">Unlock Full Sample<span class="arrow">→</span></button>
+          </form>
+          <div class="gate-fine">One-time. Unsubscribe in one click. No CRM, no list resale.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+  <Footer />
+</Base>
+
+<style>
+  .sample { padding: 4rem 2rem 0; background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .head { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+  .head .meta-row { margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--hairline); }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink); margin-bottom: 1rem;
+    font-variation-settings: "opsz" 96;
+  }
+  h1 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .lead {
+    font-family: var(--serif); font-weight: 300; font-size: 1.05rem; line-height: 1.6;
+    color: var(--body); max-width: 44em; font-variation-settings: "opsz" 20;
+  }
+
+  .module-block { margin-bottom: 3rem; border: 1px solid var(--tan); background: var(--canvas); }
+  .module-block header {
+    display: grid; grid-template-columns: 64px 1fr auto;
+    gap: 1.5rem; align-items: center;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--canvas-warm);
+  }
+  .mod-num {
+    font-family: var(--serif); font-style: italic; font-size: 2.5rem; line-height: 1;
+    color: var(--periwinkle-deep);
+    font-variation-settings: "opsz" 96;
+  }
+  .mod-tag {
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cocoa); margin-bottom: 0.25rem;
+  }
+  header h2 {
+    font-family: var(--serif); font-weight: 400; font-size: 1.45rem;
+    line-height: 1.15; color: var(--ink);
+    font-variation-settings: "opsz" 48;
+  }
+  .mod-status {
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--periwinkle-deep);
+    padding: 0.3rem 0.6rem; border: 1px solid var(--periwinkle); background: var(--canvas);
+  }
+  .block-body { padding: 1.75rem; }
+
+  /* Pricing table */
+  .ranking-table {
+    font-family: var(--mono); font-size: 0.82rem;
+    border: 1px solid var(--hairline); background: var(--canvas);
+  }
+  .rt-head, .rt-row {
+    display: grid; grid-template-columns: 2fr 0.7fr 0.7fr 0.7fr 0.8fr 1fr;
+    gap: 0.5rem; padding: 0.6rem 0.85rem;
+    align-items: center;
+  }
+  .rt-head { background: var(--ink); color: var(--canvas); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; }
+  .rt-head .r, .rt-row .r { text-align: right; }
+  .rt-row { border-bottom: 1px dotted var(--hairline); color: var(--ink); }
+  .rt-row:nth-child(even) { background: var(--canvas-warm); }
+  .rt-row:last-child { border-bottom: none; }
+  .rt-row .v { color: var(--ink); font-weight: 700; }
+  .rt-row .m { color: var(--muted); }
+  .rt-row .d.up { color: var(--periwinkle-deep); font-weight: 700; }
+  .rt-row .d.down { color: var(--orange); font-weight: 700; }
+  .rt-row .ver { font-size: 0.66rem; color: var(--cocoa); }
+
+  /* Map sample */
+  .sample-map-wrap {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;
+    aspect-ratio: 16/9; position: relative;
+  }
+  .sample-map-wrap :global(.trade-map) { position: relative; inset: auto; border: 1px solid var(--hairline); }
+  .map-legend {
+    font-family: var(--mono); font-size: 0.78rem; line-height: 1.6;
+    padding: 1.25rem; background: var(--canvas-warm); border: 1px solid var(--hairline);
+    display: flex; flex-direction: column; gap: 0.6rem; justify-content: center;
+  }
+  .leg-row { display: flex; align-items: center; gap: 0.5rem; color: var(--ink); }
+  .leg-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .leg-dot.you-dot { background: var(--periwinkle); border: 2px solid var(--ink); }
+  .leg-dot.comp-dot { background: var(--cocoa); border: 1px solid var(--canvas); box-shadow: 0 0 0 1px var(--ink); }
+  .leg-dash { width: 18px; height: 0; border-top: 1px dashed var(--ink); }
+
+  /* Wages grid */
+  .wages-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--hairline); border: 1px solid var(--hairline);
+  }
+  .wage-cell { background: var(--canvas); padding: 1.25rem 1rem; }
+  .wc-pos { font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cocoa); margin-bottom: 0.75rem; }
+  .wc-row { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dotted var(--hairline); font-family: var(--mono); font-size: 0.82rem; color: var(--body); }
+  .wc-row:last-of-type { border-bottom: none; }
+  .wc-row .v { color: var(--ink); font-weight: 700; }
+  .wc-row .m { color: var(--muted); }
+  .wc-delta {
+    margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid var(--hairline);
+    font-family: var(--serif); font-style: italic; font-size: 1.1rem;
+    font-variation-settings: "opsz" 36;
+  }
+  .wc-delta.up { color: var(--periwinkle-deep); }
+  .wc-delta.down { color: var(--orange); }
+
+  /* Insight flag */
+  .insight-flag {
+    margin-top: 1.25rem; padding: 0.85rem 1rem;
+    background: rgba(125,143,184,0.08); border-left: 3px solid var(--periwinkle);
+    font-family: var(--serif); font-size: 0.96rem; line-height: 1.5; color: var(--body);
+    font-variation-settings: "opsz" 20;
+  }
+  .insight-flag strong { font-family: var(--sans); font-weight: 600; color: var(--ink); margin-right: 0.3rem; }
+  .insight-flag em { font-style: italic; color: var(--cocoa); font-weight: 500; }
+
+  /* Gate */
+  .gate { position: relative; margin-top: 2rem; padding-top: 0; padding-bottom: 4rem; }
+  .gate-fade {
+    height: 200px;
+    background: linear-gradient(180deg, var(--canvas) 0%, rgba(254,253,250,0.85) 40%, var(--canvas-warm) 100%);
+    margin-bottom: -120px; pointer-events: none;
+    border-top: 1px dashed var(--periwinkle);
+  }
+  .gate-card {
+    position: relative; z-index: 2;
+    max-width: 640px; margin: 0 auto;
+    background: var(--canvas); padding: 2.5rem 2.5rem;
+    border: 1px solid var(--periwinkle); border-left: 4px solid var(--periwinkle);
+    box-shadow: 0 20px 40px rgba(125,143,184,0.15);
+  }
+  .gate-label {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 0.85rem;
+  }
+  .gate-card h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.85rem; line-height: 1.05; color: var(--ink); margin-bottom: 0.85rem;
+    font-variation-settings: "opsz" 60;
+  }
+  .gate-card p {
+    font-family: var(--serif); font-weight: 300; font-size: 0.98rem; line-height: 1.55;
+    color: var(--body); margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 20;
+  }
+  .gate-form { display: flex; gap: 0.75rem; align-items: stretch; flex-wrap: wrap; }
+  .gate-form input {
+    flex: 1; min-width: 200px; height: 52px;
+    padding: 0 1rem;
+    font-family: var(--serif); font-size: 1rem; color: var(--ink);
+    background: var(--canvas-warm); border: 1px solid var(--ink);
+  }
+  .gate-form input:focus { outline: none; border-color: var(--periwinkle-deep); background: var(--canvas); }
+  .gate-fine {
+    margin-top: 0.85rem;
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 800px) {
+    .sample-map-wrap { grid-template-columns: 1fr; aspect-ratio: auto; }
+    .sample-map-wrap :global(.trade-map) { aspect-ratio: 4/3; }
+    .wages-grid { grid-template-columns: 1fr 1fr; }
+    .ranking-table { font-size: 0.7rem; }
+    .rt-head, .rt-row { grid-template-columns: 1.4fr 0.6fr 0.6fr 0.6fr 0.7fr 0.9fr; }
+  }
+</style>

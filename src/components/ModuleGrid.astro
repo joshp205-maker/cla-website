@@ -1,0 +1,413 @@
+---
+import TradeMap from './TradeMap.astro';
+---
+<section class="modules-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>What's in every <span class="italic">CLA.</span></h2>
+      <span class="meta">6 modules · 14-day turnaround</span>
+    </div>
+
+    <div class="cards">
+
+      <!-- 01 — Menu & Pricing -->
+      <div class="card">
+        <div class="card-photo">
+          <div class="card-num">01</div>
+          <div class="ph-chart">
+            <div class="bar" style="height:35%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:75%"></div>
+            <div class="bar" style="height:48%"></div>
+            <div class="bar" style="height:88%"></div>
+            <div class="bar" style="height:62%"></div>
+            <div class="bar" style="height:42%"></div>
+          </div>
+        </div>
+        <div class="card-tag">Menu &amp; Pricing</div>
+        <h3>Like-item pricing — every category</h3>
+        <p>Apples-to-apples comp pricing for every category on your menu. Not broad averages. Not industry guesswork. <strong>Real items, real comps, real prices</strong> — with market differentiators called out where they matter.</p>
+        <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+      </div>
+
+      <!-- 02 — Trade Area Map -->
+      <div class="card">
+        <div class="card-photo" style="padding: 0;">
+          <div class="card-num map-num">02</div>
+          <TradeMap id="hero-map" />
+        </div>
+        <div class="card-tag">Market &amp; Trade Area</div>
+        <h3>5-mile competitive map</h3>
+        <p>Comp locations pinned. Distance threat assessment. Market saturation grading. New-entry tracking. Trade-area demographics.</p>
+        <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+      </div>
+
+      <!-- 03 — Local Wages -->
+      <div class="card">
+        <div class="card-photo">
+          <div class="card-num">03</div>
+          <div class="ph-wages">
+            <div class="legend">
+              <span><span class="sw you"></span>YOU</span>
+              <span><span class="sw mkt"></span>MKT</span>
+            </div>
+            <div class="median" style="bottom: calc(18px + 50%);"><span class="median-lbl">MKT MEDIAN</span></div>
+            <div class="baseline"></div>
+            <div class="col">
+              <div class="pair"><div class="bar" style="height:55%"></div><div class="bar mkt" style="height:62%"></div></div>
+              <span class="col-lbl">FOH</span>
+            </div>
+            <div class="col">
+              <div class="pair"><div class="bar" style="height:72%"></div><div class="bar mkt" style="height:68%"></div></div>
+              <span class="col-lbl">BOH</span>
+            </div>
+            <div class="col">
+              <div class="pair"><div class="bar" style="height:85%"></div><div class="bar mkt" style="height:78%"></div></div>
+              <span class="col-lbl">MGMT</span>
+            </div>
+            <div class="col">
+              <div class="pair"><div class="bar" style="height:45%"></div><div class="bar mkt" style="height:50%"></div></div>
+              <span class="col-lbl">RENT</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-tag">Local Wages</div>
+        <h3>Know what positions pay in your area</h3>
+        <p>Position-by-position wage data — FOH, BOH, management — sourced from <strong>your trade area</strong>, not state averages. Real-estate cost shown as context. <strong>Never be held hostage at the negotiation table.</strong> Know the landscape before it costs you.</p>
+        <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+      </div>
+
+      <!-- 04 — Guest Sentiment -->
+      <div class="card">
+        <div class="card-photo">
+          <div class="card-num">04</div>
+          <div class="ph-sent">
+            <div class="ticks"><span>1.0</span><span>2.0</span><span>3.0</span><span>4.0</span><span>5.0</span></div>
+            <div class="band-wrap">
+              <div class="band">
+                <div class="quartile" style="left:25%"></div>
+                <div class="quartile" style="left:50%"></div>
+                <div class="quartile" style="left:75%"></div>
+                <div class="marker" style="left:82%">
+                  <span class="marker-lbl">YOU · 4.28</span>
+                </div>
+              </div>
+            </div>
+            <div class="stars">
+              <span class="mkt-score">bottom q. 3.41</span>
+              <span class="you-score">★ ★ ★ ★ ☆</span>
+              <span class="mkt-score">top q. 4.62</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-tag">Guest Sentiment</div>
+        <h3>How are you executing vs. your competition?</h3>
+        <p>Per-comp aggregated sentiment scores in your trade area. Theme breakdown — service, food, value, cleanliness. <strong>See exactly who's doing it best</strong>, what they're doing differently, and where you sit on the leaderboard.</p>
+        <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+      </div>
+
+      <!-- 3PD — coming soon -->
+      <div class="card-wide card-soon">
+        <div class="card-wide-photo">
+          <div class="stamp soon">3PD · COMING Q3 2026</div>
+          <svg viewBox="0 0 200 130" style="margin-top: 1.5rem; width: 100%; height: calc(100% - 1.75rem);" preserveAspectRatio="xMidYMid meet">
+            <circle cx="100" cy="65" r="50" fill="none" stroke="#b89f7c" stroke-width="0.6" stroke-dasharray="2,3" opacity="0.6"/>
+            <circle cx="100" cy="65" r="32" fill="none" stroke="#7a5a3d" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.6"/>
+            <circle cx="100" cy="65" r="14" fill="none" stroke="#0a0a0a" stroke-width="0.8"/>
+            <circle cx="100" cy="65" r="4" fill="#7d8fb8" stroke="#0a0a0a" stroke-width="1"/>
+            <g font-family="JetBrains Mono" font-size="4.5" fill="#7a5a3d" letter-spacing="0.5" text-anchor="middle">
+              <text x="100" y="18" font-weight="700">DOORDASH</text>
+              <text x="160" y="68">UBEREATS</text>
+              <text x="100" y="120" font-weight="700">GRUBHUB</text>
+              <text x="40" y="68">EZCATER</text>
+            </g>
+            <g stroke="#b89f7c" stroke-width="0.4" opacity="0.5">
+              <line x1="100" y1="65" x2="100" y2="25"/>
+              <line x1="100" y1="65" x2="150" y2="65"/>
+              <line x1="100" y1="65" x2="100" y2="110"/>
+              <line x1="100" y1="65" x2="50" y2="65"/>
+            </g>
+            <g font-family="JetBrains Mono" font-size="3.8" letter-spacing="0.3">
+              <rect x="80" y="32" width="40" height="9" fill="#fefdfa" stroke="#7a5a3d" stroke-width="0.5"/>
+              <text x="100" y="38" text-anchor="middle" fill="#0a0a0a">+18% MARKUP</text>
+              <rect x="128" y="60" width="44" height="9" fill="#fefdfa" stroke="#7a5a3d" stroke-width="0.5"/>
+              <text x="150" y="66" text-anchor="middle" fill="#0a0a0a">+22% MARKUP</text>
+              <rect x="80" y="89" width="40" height="9" fill="#fefdfa" stroke="#7a5a3d" stroke-width="0.5"/>
+              <text x="100" y="95" text-anchor="middle" fill="#0a0a0a">+15% MARKUP</text>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="card-tag soon-tag">3PD Analysis · <strong>Coming Q3 2026</strong></div>
+          <h3>Third-party delivery competitive intelligence</h3>
+          <ul>
+            <li>DoorDash · UberEats · GrubHub pricing audits</li>
+            <li>Platform markup analysis vs. your direct menu</li>
+            <li>Comp 3PD visibility &amp; ranking</li>
+            <li>Hidden-fee mapping by platform</li>
+            <li>Recommended pricing strategy per platform</li>
+            <li>Performance vs. direct-channel comps</li>
+          </ul>
+          <a class="card-link soon-link">Notify me at launch<span class="arrow">›</span></a>
+          <div class="note soon-note"><strong>Currently in development.</strong> Reserve your spot — first 25 charter subscribers receive founding pricing.</div>
+        </div>
+      </div>
+
+      <!-- ezCater -->
+      <div class="card-wide">
+        <div class="card-wide-photo">
+          <div class="stamp">EZCATER · BRAND-X</div>
+          <div style="margin-top: 1.75rem;" class="ph-chart">
+            <div class="bar" style="height:30%;background:var(--tan)"></div>
+            <div class="bar" style="height:50%;background:var(--tan)"></div>
+            <div class="bar" style="height:45%;background:var(--periwinkle)"></div>
+            <div class="bar" style="height:65%;background:var(--tan)"></div>
+            <div class="bar" style="height:38%;background:var(--orange)"></div>
+            <div class="bar" style="height:58%;background:var(--tan)"></div>
+            <div class="bar" style="height:72%;background:var(--cocoa)"></div>
+            <div class="bar" style="height:42%;background:var(--tan)"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card-tag">ezCater Analysis</div>
+          <h3>Catering competitive intelligence</h3>
+          <ul>
+            <li>Per-person pricing across direct ezCater comps</li>
+            <li>Minimum order &amp; delivery fees benchmarked</li>
+            <li>Package structure analysis — boxed / platter / hibachi / sushi</li>
+            <li>Underpricing flags ≥20% below market average</li>
+            <li>Package recommendations — add / drop / reprice</li>
+            <li>Available as a standalone analysis</li>
+          </ul>
+          <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+          <div class="note">Standalone or part of the Core CLA.</div>
+        </div>
+      </div>
+
+      <!-- Packaged Items / Retail SKUs -->
+      <div class="card-wide">
+        <div class="card-wide-photo">
+          <div class="stamp">RETAIL · PACKAGED</div>
+          <svg viewBox="0 0 200 130" style="margin-top: 1.5rem; width: 100%; height: calc(100% - 1.75rem);" preserveAspectRatio="xMidYMid meet">
+            <!-- Shelf rails -->
+            <line x1="6" y1="40" x2="194" y2="40" stroke="#7a5a3d" stroke-width="0.6" opacity="0.4"/>
+            <line x1="6" y1="78" x2="194" y2="78" stroke="#7a5a3d" stroke-width="0.6" opacity="0.4"/>
+            <line x1="6" y1="116" x2="194" y2="116" stroke="#7a5a3d" stroke-width="0.6" opacity="0.4"/>
+            <!-- Row 1: bottles -->
+            <g>
+              <rect x="14" y="14" width="11" height="24" fill="#7d8fb8" rx="1"/>
+              <rect x="32" y="16" width="11" height="22" fill="#b89f7c" rx="1"/>
+              <rect x="50" y="14" width="11" height="24" fill="#7d8fb8" rx="1"/>
+              <rect x="68" y="18" width="11" height="20" fill="#7a5a3d" rx="1"/>
+              <rect x="86" y="14" width="11" height="24" fill="#5a6d9a" rx="1"/>
+              <rect x="104" y="16" width="11" height="22" fill="#b89f7c" rx="1"/>
+              <rect x="122" y="14" width="11" height="24" fill="#7d8fb8" rx="1"/>
+              <rect x="140" y="18" width="11" height="20" fill="#7a5a3d" rx="1"/>
+              <rect x="158" y="14" width="11" height="24" fill="#5a6d9a" rx="1"/>
+              <rect x="176" y="16" width="11" height="22" fill="#b89f7c" rx="1"/>
+            </g>
+            <!-- Row 2: cans / chips -->
+            <g>
+              <rect x="14" y="52" width="16" height="24" fill="#b89f7c"/>
+              <rect x="34" y="54" width="14" height="22" fill="#e7ddc8" stroke="#7a5a3d" stroke-width="0.5"/>
+              <rect x="52" y="52" width="16" height="24" fill="#5a6d9a"/>
+              <rect x="72" y="54" width="14" height="22" fill="#fefdfa" stroke="#7a5a3d" stroke-width="0.5"/>
+              <rect x="90" y="52" width="16" height="24" fill="#7d8fb8"/>
+              <rect x="110" y="54" width="14" height="22" fill="#e7ddc8" stroke="#7a5a3d" stroke-width="0.5"/>
+              <rect x="128" y="52" width="16" height="24" fill="#b89f7c"/>
+              <rect x="148" y="54" width="14" height="22" fill="#fefdfa" stroke="#7a5a3d" stroke-width="0.5"/>
+              <rect x="166" y="52" width="16" height="24" fill="#5a6d9a"/>
+            </g>
+            <!-- Row 3: bags w/ price tags -->
+            <g>
+              <rect x="14" y="88" width="20" height="26" fill="#7a5a3d" rx="2"/>
+              <rect x="40" y="88" width="20" height="26" fill="#b89f7c" rx="2"/>
+              <rect x="66" y="88" width="20" height="26" fill="#5a6d9a" rx="2"/>
+              <rect x="92" y="88" width="20" height="26" fill="#e7ddc8" stroke="#7a5a3d" stroke-width="0.5" rx="2"/>
+              <rect x="118" y="88" width="20" height="26" fill="#7d8fb8" rx="2"/>
+              <rect x="144" y="88" width="20" height="26" fill="#7a5a3d" rx="2"/>
+              <rect x="170" y="88" width="20" height="26" fill="#b89f7c" rx="2"/>
+            </g>
+            <!-- Margin opportunity flag -->
+            <rect x="86" y="48" width="20" height="9" fill="#e85d1c"/>
+            <text x="96" y="54.5" font-family="JetBrains Mono" font-size="4" fill="#fefdfa" text-anchor="middle" font-weight="700">+38¢</text>
+            <line x1="96" y1="57" x2="98" y2="64" stroke="#e85d1c" stroke-width="0.7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-tag">Retail &amp; Packaged Goods</div>
+          <h3>Individual packaged item analysis</h3>
+          <ul>
+            <li>Bottled beverages, cans, sodas, water — priced across comps</li>
+            <li>Bagged chips, packaged sides, branded snack SKUs</li>
+            <li>Pre-packaged grab-and-go items &amp; retail merch</li>
+            <li>Per-SKU margin opportunity flags</li>
+            <li>Vendor-suggested retail vs. your actual price</li>
+            <li>"Easy money" callouts — under-priced retail at the counter</li>
+          </ul>
+          <a class="card-link" href="/programs">Learn more<span class="arrow">›</span></a>
+          <div class="note">Most operators leave 8–15% margin on the counter. We find it.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .modules-section { padding: var(--section) 2rem; background: var(--canvas); }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem; padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .section-head h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.05; letter-spacing: -0.025em;
+    color: var(--ink); font-variation-settings: "opsz" 72;
+    max-width: 14em;
+  }
+  .section-head h2 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .section-head .meta {
+    font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+    padding-bottom: 0.5rem;
+  }
+  .cards {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .card {
+    background: var(--canvas); padding: 1.5rem;
+    display: flex; flex-direction: column;
+    transition: background 0.25s; cursor: pointer; min-height: 360px;
+  }
+  .card:hover { background: var(--canvas-warm); }
+  .card-photo {
+    background: var(--paper-warm); aspect-ratio: 16/10;
+    margin: -1.5rem -1.5rem 1.25rem;
+    border-bottom: 1px solid var(--hairline);
+    position: relative; padding: 1rem; overflow: hidden;
+  }
+  .card-num {
+    position: absolute; top: 0.7rem; right: 1rem;
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em;
+    color: var(--cocoa);
+  }
+  .card-num.map-num { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.6); z-index: 5; }
+  .card-tag {
+    font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 0.65rem;
+  }
+  .card h3 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 1.3rem; line-height: 1.2; letter-spacing: -0.015em;
+    color: var(--ink); margin-bottom: 0.85rem;
+    font-variation-settings: "opsz" 36;
+  }
+  .card p {
+    font-size: 0.86rem; line-height: 1.55; color: var(--body);
+    margin-bottom: 1.25rem; flex: 1;
+  }
+  .card-link {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink); display: inline-flex; align-items: center; gap: 0.4rem;
+    padding-bottom: 0.25rem; border-bottom: 1px solid var(--periwinkle);
+    align-self: flex-start;
+  }
+  .card-link .arrow { transition: transform 0.25s; }
+  .card:hover .card-link .arrow { transform: translateX(3px); }
+
+  /* Card photo placeholders */
+  .ph-chart { display: flex; align-items: flex-end; gap: 4px; height: 100%; }
+  .ph-chart .bar { flex: 1; background: var(--periwinkle); }
+  .ph-chart .bar:nth-child(3) { background: var(--cocoa); }
+  .ph-chart .bar:nth-child(5) { background: var(--orange); }
+
+  /* Wages chart */
+  .ph-wages { display: flex; align-items: flex-end; justify-content: space-between; gap: 6px; height: 100%; padding: 8px 4px 18px; position: relative; }
+  .ph-wages .baseline { position: absolute; left: 4px; right: 4px; bottom: 18px; height: 1px; background: var(--hairline); }
+  .ph-wages .median { position: absolute; left: 4px; right: 4px; height: 1px; background: var(--orange); border-top: 1px dashed var(--orange); opacity: 0.45; }
+  .ph-wages .median-lbl { position: absolute; right: 4px; top: -8px; font-family: var(--mono); font-size: 0.5rem; color: var(--orange); letter-spacing: 0.1em; background: var(--paper-warm); padding: 0 3px; }
+  .ph-wages .col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; height: 100%; justify-content: flex-end; }
+  .ph-wages .pair { display: flex; gap: 2px; align-items: flex-end; width: 100%; justify-content: center; height: calc(100% - 14px); }
+  .ph-wages .bar {
+    width: 9px;
+    background: linear-gradient(180deg, var(--periwinkle) 0%, var(--periwinkle-deep) 100%);
+    box-shadow: inset 0 -2px 0 rgba(10,10,10,0.12);
+  }
+  .ph-wages .bar.mkt { background: linear-gradient(180deg, var(--tan-soft) 0%, var(--tan) 100%); }
+  .ph-wages .col-lbl {
+    font-family: var(--mono); font-size: 0.5rem; font-weight: 600;
+    color: var(--ink); letter-spacing: 0.1em;
+    position: absolute; bottom: -16px;
+  }
+  .ph-wages .legend {
+    position: absolute; top: 4px; right: 4px;
+    display: flex; gap: 6px;
+    font-family: var(--mono); font-size: 0.46rem; letter-spacing: 0.08em; color: var(--muted);
+  }
+  .ph-wages .legend .sw { display: inline-block; width: 6px; height: 6px; margin-right: 2px; vertical-align: -1px; }
+  .ph-wages .legend .sw.you { background: var(--periwinkle-deep); }
+  .ph-wages .legend .sw.mkt { background: var(--tan); }
+
+  /* Sentiment chart */
+  .ph-sent {
+    position: relative; height: 100%; padding: 14px 0 20px;
+    display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  }
+  .ph-sent .band-wrap { position: relative; padding: 0 4px; }
+  .ph-sent .band {
+    height: 14px; position: relative;
+    background: linear-gradient(90deg,
+      var(--tan) 0%, var(--tan-soft) 25%, #ebe3d0 50%, var(--periwinkle) 75%, var(--periwinkle-deep) 100%);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .ph-sent .quartile { position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(10,10,10,0.25); }
+  .ph-sent .marker { position: absolute; top: -7px; width: 3px; height: 28px; background: var(--ink); box-shadow: 0 0 0 2px var(--paper-warm); }
+  .ph-sent .marker-lbl {
+    position: absolute; top: -22px; transform: translateX(-50%);
+    font-family: var(--mono); font-size: 0.5rem; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--ink); background: var(--paper-warm); padding: 1px 5px; border: 1px solid var(--ink);
+    white-space: nowrap;
+  }
+  .ph-sent .ticks { display: flex; justify-content: space-between; padding: 4px 4px 0; font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.08em; color: var(--muted); }
+  .ph-sent .stars { display: flex; justify-content: space-between; padding: 0 4px; font-family: var(--serif); font-style: italic; font-size: 0.62rem; }
+  .ph-sent .you-score { font-weight: 700; font-style: normal; font-family: var(--mono); color: var(--periwinkle-deep); letter-spacing: 0.05em; }
+  .ph-sent .mkt-score { color: var(--muted); }
+
+  /* Wide cards (3PD + ezCater) */
+  .card-wide {
+    grid-column: span 4;
+    background: var(--canvas);
+    padding: 2.25rem;
+    display: grid; grid-template-columns: 1.2fr 2fr; gap: 3rem;
+    align-items: center;
+    border-top: 1px solid var(--hairline);
+    transition: background 0.25s;
+  }
+  .card-wide:hover { background: var(--paper-warm); }
+  .card-wide-photo {
+    background: var(--canvas-warm); aspect-ratio: 4/3;
+    padding: 1.25rem; border: 1px solid var(--hairline); position: relative;
+  }
+  .card-wide-photo .stamp {
+    position: absolute; top: 0.7rem; left: 1rem;
+    font-family: var(--mono); font-size: 0.6rem; color: var(--cocoa); letter-spacing: 0.15em;
+  }
+  .card-wide-photo .stamp.soon { color: var(--orange); }
+  .card-wide h3 { font-size: 1.7rem; margin: 0.5rem 0 1rem; font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+  .card-wide ul {
+    list-style: none; columns: 2; column-gap: 2.5rem;
+    font-size: 0.9rem; line-height: 1.85; color: var(--body); margin-bottom: 1.5rem;
+  }
+  .card-wide li::before { content: "→ "; color: var(--periwinkle); font-weight: 700; margin-right: 0.2rem; }
+  .card-wide .note { margin-top: 0.5rem; font-family: var(--serif); font-style: italic; font-size: 0.86rem; color: var(--cocoa); }
+
+  .card-soon .soon-tag { color: var(--orange); }
+  .card-soon .soon-link { color: var(--muted); border-color: var(--tan); }
+  .card-soon .soon-note { color: var(--orange); }
+</style>

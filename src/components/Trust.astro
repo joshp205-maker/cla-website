@@ -1,0 +1,66 @@
+---
+---
+<section class="trust">
+  <div class="container">
+    <div class="trust-head">
+      <div class="label">Confidence in data · Trusted source · Reliability</div>
+      <h2>Every number is <span class="italic">defendable, every time</span> — trust but verify.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="num">3<sub>×</sub></div>
+        <div class="lbl">Data Verification</div>
+        <div class="desc">Every price, every figure, verified across three independent sources before it ships.</div>
+      </div>
+      <div class="trust-item">
+        <div class="num">100<sub>%</sub></div>
+        <div class="lbl">Source-Cited</div>
+        <div class="desc">Every data point traces to a citable URL. No estimates. No "industry average."</div>
+      </div>
+      <div class="trust-item alert">
+        <div class="num">14<sub>DAY</sub></div>
+        <div class="lbl">Turnaround</div>
+        <div class="desc">From signed order to delivered CLA. Twice a year, on schedule, no extensions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust { padding: var(--section) 2rem; background: var(--paper-warm); position: relative; }
+  .container { max-width: var(--max); margin: 0 auto; }
+  .trust-head { text-align: center; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--hairline-strong); }
+  .label {
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--periwinkle-deep); margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(1.75rem, 3.5vw, 2.4rem); line-height: 1.1; color: var(--ink);
+    font-variation-settings: "opsz" 60;
+    max-width: 24em; margin: 0 auto;
+  }
+  h2 .italic { font-style: italic; color: var(--periwinkle-deep); }
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .trust-item { background: var(--canvas); padding: 3rem 2.25rem; text-align: left; }
+  .num {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 4.5rem; line-height: 1; color: var(--periwinkle-deep);
+    margin-bottom: 1rem;
+    font-variation-settings: "opsz" 144;
+  }
+  .trust-item.alert .num { color: var(--orange); }
+  .num sub {
+    font-size: 0.32em; font-style: normal; font-weight: 500; font-family: var(--mono);
+    color: var(--muted); letter-spacing: 0.15em; vertical-align: super; margin-left: 0.2em;
+  }
+  .lbl {
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink); margin-bottom: 0.65rem;
+  }
+  .desc { font-family: var(--serif); font-weight: 300; font-size: 0.96rem; line-height: 1.6; color: var(--body); font-variation-settings: "opsz" 20; }
+</style>
