@@ -39,24 +39,18 @@
       </div>
     </div>
 
-    <div class="hud reveal d3">
-      <div class="hud-head">
-        <span>Brand-X · Davie FL</span>
+    <figure class="report-preview reveal d3">
+      <div class="frame-head">
+        <span>Real CLA · Verdict page</span>
         <span class="live">Live Readout</span>
       </div>
-      <div class="hud-row"><span>Comps audited</span><span class="val">47</span></div>
-      <div class="hud-row"><span>Menu items priced</span><span class="val">312</span></div>
-      <div class="hud-row"><span>Tier position</span><span class="val">Tier 2 / 4</span></div>
-      <div class="hud-row"><span>Underpriced vs. market</span><span class="val flag">7 items</span></div>
-      <div class="hud-row"><span>Catering per-person Δ</span><span class="val up">−12.4%</span></div>
-      <div class="hud-row"><span>Next snapshot</span><span class="val">2026.09</span></div>
-
-      <div class="money">
+      <img src="/sample/verdict.png" alt="Real CLA verdict: Pre-Opening Positioning & Recommendation" />
+      <figcaption>
         <span class="tag">EST. ANNUAL UPLIFT</span>
         <div class="label">If repriced to market</div>
         <div class="big">+ $38,400 / unit</div>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -110,64 +104,58 @@
   .lead strong { font-weight: 500; color: var(--ink); }
   .ctas { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
 
-  /* HUD */
-  .hud {
+  /* Report preview frame */
+  .report-preview {
+    margin: 0;
     background: var(--canvas-warm);
     border: 1px solid var(--tan);
-    padding: 1.75rem;
+    padding: 1rem 1rem 0;
     position: relative;
   }
-  .hud::before {
+  .report-preview::before {
     content: ""; position: absolute; top: -5px; left: -5px; width: 30px; height: 30px;
     border-top: 2px solid var(--ink); border-left: 2px solid var(--ink);
   }
-  .hud::after {
+  .report-preview::after {
     content: ""; position: absolute; bottom: -5px; right: -5px; width: 30px; height: 30px;
     border-bottom: 2px solid var(--ink); border-right: 2px solid var(--ink);
   }
-  .hud-head {
+  .frame-head {
     display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 1rem; margin-bottom: 1rem;
+    padding-bottom: 0.85rem; margin-bottom: 0.85rem;
     border-bottom: 1px solid var(--ink);
     font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--ink);
   }
-  .hud-head .live { color: var(--periwinkle-deep); }
-  .hud-head .live::before {
+  .frame-head .live { color: var(--periwinkle-deep); }
+  .frame-head .live::before {
     content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%;
     background: var(--orange); margin-right: 0.4rem; vertical-align: 1px;
     animation: pulse 2s ease-in-out infinite;
   }
-  .hud-row {
-    display: grid; grid-template-columns: 1fr auto;
-    padding: 0.7rem 0;
-    border-bottom: 1px dotted var(--hairline);
-    font-family: var(--serif); font-size: 0.92rem; color: var(--body); font-weight: 300;
-    align-items: baseline;
+  .report-preview img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--hairline);
+    background: var(--canvas);
   }
-  .hud-row:last-of-type { border-bottom: none; }
-  .hud-row .val {
-    font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: var(--ink);
-  }
-  .hud-row .val.flag { color: var(--periwinkle-deep); }
-  .hud-row .val.up { color: var(--cocoa); }
-  .money {
-    margin-top: 1.25rem; padding: 1rem 1.25rem;
+  .report-preview figcaption {
+    margin: 1rem 0;
+    padding: 1rem 1.25rem;
     background: var(--canvas);
     border: 1px solid var(--orange); border-left: 4px solid var(--orange);
     position: relative;
   }
-  .money .tag {
+  .report-preview .tag {
     position: absolute; top: -10px; left: 1rem;
     background: var(--orange); color: #fff;
     padding: 3px 10px;
     font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em;
   }
-  .money .label {
+  .report-preview .label {
     font-family: var(--mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.15em;
     color: var(--cocoa); margin-top: 0.25rem;
   }
-  .money .big {
+  .report-preview .big {
     font-family: var(--serif); font-style: italic; font-weight: 400;
     font-size: 1.7rem; line-height: 1; color: var(--orange);
     margin-top: 0.35rem;

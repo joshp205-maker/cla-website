@@ -38,32 +38,16 @@ import Footer from '../components/Footer.astro';
           <span class="mod-status">Public</span>
         </header>
         <div class="block-body">
-          <div class="ranking-table">
-            <div class="rt-head">
-              <span>Menu Item</span><span class="r">You</span><span class="r">Mkt avg</span><span class="r">Δ</span><span class="r">Tier</span><span class="r">Verified</span>
-            </div>
-            {[
-              ['California Roll', '7.95', '8.75', '+0.80', 'T2 / 4', '2026.04.18'],
-              ['Spicy Tuna Roll', '8.50', '9.10', '+0.60', 'T2 / 4', '2026.04.18'],
-              ['Rainbow Roll', '13.95', '14.20', '+0.25', 'T2 / 4', '2026.04.20'],
-              ['Volcano Roll', '12.50', '11.80', '−0.70', 'T3 / 4', '2026.04.20'],
-              ['Dragon Roll', '14.50', '15.10', '+0.60', 'T2 / 4', '2026.04.18'],
-              ['Lobster Roll', '17.95', '18.40', '+0.45', 'T2 / 4', '2026.04.22'],
-              ['Hibachi Chicken', '13.95', '14.85', '+0.90', 'T2 / 4', '2026.04.22'],
-              ['Hibachi Shrimp', '15.95', '16.50', '+0.55', 'T2 / 4', '2026.04.22'],
-            ].map(([item, you, mkt, delta, tier, ver]) => (
-              <div class="rt-row">
-                <span>{item}</span>
-                <span class="r v">{you}</span>
-                <span class="r m">{mkt}</span>
-                <span class:list={['r', 'd', String(delta).startsWith('+') ? 'up' : 'down']}>{delta}</span>
-                <span class="r">{tier}</span>
-                <span class="r ver">{ver}</span>
-              </div>
-            ))}
-          </div>
+          <figure class="real-shot">
+            <img src="/sample/pricing-chart.png" alt="Real CLA: Lunch / Deli Sandwiches comparative pricing chart with comp tooltip" />
+            <figcaption>Lunch / Deli Sandwiches · live competitive pricing chart with priced comps tooltip on hover.</figcaption>
+          </figure>
+          <figure class="real-shot">
+            <img src="/sample/sources-table.png" alt="Real CLA: Competitor Sources table with item-level pricing and named comp citations" />
+            <figcaption>Competitor Sources · every comp item priced, named, and source-cited.</figcaption>
+          </figure>
           <div class="insight-flag">
-            <strong>Insight:</strong> 7 menu items priced below market average. Estimated annual uplift if repriced to market floor: <em>+$38,400 / unit</em>.
+            <strong>Insight:</strong> Whitefish Salad sandwich sits at <em>$8.50 LOW</em> against a $14.40 market high — room to lift price toward the named comp ceiling without losing the value position.
           </div>
         </div>
       </article>
@@ -193,6 +177,19 @@ import Footer from '../components/Footer.astro';
     padding: 0.3rem 0.6rem; border: 1px solid var(--periwinkle); background: var(--canvas);
   }
   .block-body { padding: 1.75rem; }
+
+  /* Real CLA screenshot frames */
+  .real-shot { margin: 0 0 1.5rem; padding: 0; }
+  .real-shot img {
+    width: 100%; height: auto; display: block;
+    border: 1px solid var(--tan);
+    background: var(--canvas);
+  }
+  .real-shot figcaption {
+    font-family: var(--serif); font-style: italic; font-size: 0.86rem; line-height: 1.5;
+    color: var(--muted); padding: 0.65rem 0 0;
+    font-variation-settings: "opsz" 20;
+  }
 
   /* Pricing table */
   .ranking-table {
