@@ -42,5 +42,49 @@ const {
   </head>
   <body>
     <slot />
+    <script>
+      // Progressive enhancement: any <form data-async> submits via fetch (JSON)
+      // and swaps itself for an inline success message — no raw-JSON page nav.
+      document.querySelectorAll('form[data-async]').forEach((form) => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const f = form as HTMLFormElement;
+          const btn = f.querySelector('button[type=submit]') as HTMLButtonElement | null;
+          const origHtml = btn ? btn.innerHTML : '';
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+          const payload = Object.fromEntries(new FormData(f).entries());
+          (payload as Record<string, string>).source =
+            f.getAttribute('data-source') || f.id || 'web-form';
+
+          try {
+            const res = await fetch(f.action, {
+              method: 'POST',
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            const json = await res.json().catch(() => ({}));
+            if (!res.ok || !json.ok) throw new Error(json.error || 'request failed');
+
+            const done = document.createElement('div');
+            done.className = 'async-success';
+            done.setAttribute('role', 'status');
+            done.textContent =
+              f.getAttribute('data-success') || `Thanks — got it. I'll be in touch shortly.`;
+            f.replaceWith(done);
+          } catch (err) {
+            let errEl = f.querySelector('.async-error') as HTMLElement | null;
+            if (!errEl) {
+              errEl = document.createElement('div');
+              errEl.className = 'async-error';
+              f.appendChild(errEl);
+            }
+            errEl.textContent =
+              `Sorry — that didn't go through. Please email josh@cl-analysis.com directly.`;
+            if (btn) { btn.disabled = false; btn.innerHTML = origHtml; }
+          }
+        });
+      });
+    </script>
   </body>
 </html>

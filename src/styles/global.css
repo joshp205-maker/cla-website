@@ -74,3 +74,22 @@ img, svg { max-width: 100%; display: block; }
   color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase;
 }
 .meta-row .dot { color: var(--tan); }
+
+/* ---- async form result states ---- */
+.async-success {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--periwinkle-deep);
+  padding: 1.25rem 1.25rem;
+  border: 1px solid var(--tan);
+  background: var(--canvas-warm);
+}
+.async-error {
+  margin-top: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+}
