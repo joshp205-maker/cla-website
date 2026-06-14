@@ -29,7 +29,9 @@ import Footer from '../components/Footer.astro';
           <div class="vol-date">First issue<br/><span>Q3 2026</span></div>
         </div>
 
-        <form class="signup" action="/api/subscribe" method="POST">
+        <form class="signup" action="/api/subscribe" method="POST"
+          data-async data-source="insights-signup"
+          data-success="You're on the list. The first issue ships Q3 2026 — watch your inbox.">
           <h3>Reserve your spot.</h3>
           <p>Drop your email. We'll send the first issue when it ships, and one issue every two months after. Unsubscribe in one click. No CRM hand-off, no list resale.</p>
           <div class="row">

@@ -133,8 +133,10 @@ import Footer from '../components/Footer.astro';
         <div class="gate-card">
           <div class="gate-label">Unlock Modules 04 · 05 · 06</div>
           <h3>One email. Instant access.</h3>
-          <p>Modules 04 (Sentiment), 05 (ezCater), and 06 (Packaged Items) load below — including the live competitive comments, per-person catering breakdowns, and per-SKU retail margin opportunities.</p>
-          <form action="/api/unlock-sample" method="POST" class="gate-form">
+          <p>Drop your email and I'll send the full sample report — Modules 04 (Sentiment), 05 (ezCater), and 06 (Packaged Items), with live competitive comments, per-person catering breakdowns, and per-SKU retail margin opportunities.</p>
+          <form action="/api/subscribe" method="POST" class="gate-form"
+            data-async data-source="sample-unlock"
+            data-success="Got it — the full sample is on its way to your inbox. I'll follow up personally.">
             <input type="email" name="email" placeholder="you@brand.com" required />
             <button type="submit" class="btn-primary">Unlock Full Sample<span class="arrow">→</span></button>
           </form>

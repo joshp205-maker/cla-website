@@ -40,7 +40,9 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
 
-        <form class="form" id="consult-form" action="/api/lead" method="POST">
+        <form class="form" id="consult-form" action="/api/lead" method="POST"
+          data-async data-source="consult-form"
+          data-success="Thanks — your notes are in. I'll review them before our call and follow up by email shortly.">
           <div class="form-head">
             <span>Pre-call notes</span>
             <span class="cal-meta">Optional · helps me come prepared</span>
