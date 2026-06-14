@@ -2,6 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+// Free Google Appointment Schedule booking page. REPLACE before launch.
+const BOOKING_URL = 'https://calendar.app.google/REPLACE_ME';
 ---
 <Base
   title="Schedule a free 20-minute consult — Competitive Landscape Analysis"
@@ -30,12 +33,12 @@ import Footer from '../components/Footer.astro';
             <span class="cal-meta">Google Calendar · Eastern Time</span>
           </div>
           <div class="cal-embed">
-            <div class="placeholder">
-              <div class="placeholder-icon">→</div>
-              <div class="placeholder-text">
-                Google Calendar appointment widget mounts here.<br/>
-                <span class="muted">Replace this block with your appointment booking URL once configured.</span>
-              </div>
+            <div class="book-cta">
+              <div class="book-line">Pick a 20-minute slot that works for you.</div>
+              <a class="btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                Open the booking calendar<span class="arrow">→</span>
+              </a>
+              <div class="book-fine">Opens Google Calendar · Eastern Time · no card on file</div>
             </div>
           </div>
         </div>
@@ -128,10 +131,9 @@ import Footer from '../components/Footer.astro';
   }
   .cal-meta { color: var(--muted); font-size: 0.62rem; }
   .cal-embed { aspect-ratio: 1.15/1; background: var(--canvas-warm); border: 1px solid var(--hairline); display: flex; align-items: center; justify-content: center; }
-  .placeholder { text-align: center; padding: 2rem; max-width: 22em; }
-  .placeholder-icon { font-family: var(--mono); font-size: 1.4rem; color: var(--periwinkle); margin-bottom: 0.75rem; }
-  .placeholder-text { font-family: var(--serif); font-style: italic; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft); }
-  .placeholder-text .muted { display: block; margin-top: 0.6rem; font-style: normal; font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+  .book-cta { text-align: center; padding: 2rem; max-width: 24em; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+  .book-line { font-family: var(--serif); font-style: italic; font-size: 1.05rem; line-height: 1.5; color: var(--ink-soft); }
+  .book-fine { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 
   .form label { display: block; margin-bottom: 0.85rem; }
   .lbl {
