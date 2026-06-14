@@ -54,9 +54,10 @@ The Astro static site is ~90% built; the *launch* is ~0% done.
 
 ### C. Email notifications (Resend)
 - Replace the MailChannels `fetch` in `lead.ts` and `subscribe.ts` with a Resend API call.
-- Day-one: send notification **to Josh's inbox** from `onboarding@resend.dev` — requires no domain DNS verification.
+- **Destination:** `josh@cl-analysis.com`.
+- Because the destination is a domain address (not the Resend account owner's), the `onboarding@resend.dev` no-DNS path will not deliver. So: **verify `cl-analysis.com` in Resend** (add its DNS records — fast, the domain is already on Cloudflare) and send from a branded address, e.g. `notifications@cl-analysis.com`.
+- **Inbox must exist:** if `josh@cl-analysis.com` is not yet a real mailbox, set up **Cloudflare Email Routing** (free) to forward it to Josh's Gmail. Confirm a test email arrives before launch.
 - Store `RESEND_API_KEY` as a Pages secret. Keep KV write as the durable record; email is best-effort (never fail the user submit).
-- Post-launch (optional): verify `cl-analysis.com` in Resend for a branded `from` address.
 
 ### D. `/consult` booking (lean)
 - Replace the placeholder block with a styled CTA button linking to the booking URL.
@@ -75,9 +76,9 @@ The Astro static site is ~90% built; the *launch* is ~0% done.
 
 ## Inputs required from Josh (all small)
 1. Cloudflare auth (`wrangler login` or dashboard access).
-2. Resend account + `RESEND_API_KEY`.
-3. Booking page URL for `/consult`.
-4. Confirm the destination email address for lead notifications.
+2. Resend account + `RESEND_API_KEY` (and run the domain-verify step for `cl-analysis.com`).
+3. Booking page URL for `/consult` (default: Google Appointment Schedule).
+4. Lead notifications go to **`josh@cl-analysis.com`** — confirm that mailbox exists or set up Cloudflare Email Routing to forward it to Gmail.
 
 ## Out of scope for Wednesday (fast-follow candidates)
 - Embedded calendar booking widget on `/consult` (using a link instead).
@@ -88,6 +89,6 @@ The Astro static site is ~90% built; the *launch* is ~0% done.
 ## Success criteria
 - `https://cl-analysis.com` serves the site over HTTPS.
 - All 3 forms submit without showing raw JSON and show an inline success message.
-- A real form submission produces an email in Josh's inbox **and** a KV record.
+- A real form submission produces an email at `josh@cl-analysis.com` **and** a KV record.
 - `/consult` booking button opens a working booking page.
 - All 7 pages render correctly with no console errors.
