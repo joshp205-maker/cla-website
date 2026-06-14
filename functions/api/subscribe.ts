@@ -1,8 +1,11 @@
+import { sendNotification } from './_email';
+
 // Cloudflare Pages Function — POST /api/subscribe
 // Newsletter signup. Writes email to KV, notifies you, returns ok.
 
 interface Env {
   SUBSCRIBERS_KV?: KVNamespace;
+  RESEND_API_KEY?: string;
   LEAD_NOTIFY_TO?: string;
   LEAD_NOTIFY_FROM?: string;
 }
@@ -43,21 +46,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     } catch (e) { console.error('KV write failed', e); }
   }
 
-  // Optional notify
-  const to = env.LEAD_NOTIFY_TO ?? 'hello@cl-analysis.com';
-  const from = env.LEAD_NOTIFY_FROM ?? 'noreply@cl-analysis.com';
-  try {
-    await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: to }] }],
-        from: { email: from, name: 'CL Analysis · Insights Signup' },
-        subject: `New Insights subscriber — ${email}`,
-        content: [{ type: 'text/plain', value: `${email} subscribed at ${new Date().toISOString()}` }],
-      }),
-    });
-  } catch (e) { console.error('email failed', e); }
+  // Notify via Resend
+  await sendNotification(env, {
+    subject: `New Insights subscriber — ${email}`,
+    html: `<p style="font-family: Georgia, serif;">New subscriber: <strong>${escapeHtml(email)}</strong><br/>at ${escapeHtml(new Date().toISOString())}</p>`,
+    text: `${email} subscribed at ${new Date().toISOString()}`,
+    replyTo: email,
+  });
 
   return new Response(JSON.stringify({ ok: true }), { headers: { 'content-type': 'application/json' } });
 };

@@ -1,11 +1,14 @@
+import { sendNotification } from './_email';
+
 // Cloudflare Pages Function — POST /api/lead
-// Handles consult-form submissions: writes to KV, sends email via MailChannels,
+// Handles consult-form submissions: writes to KV, sends email via Resend,
 // returns success/error to client.
 
 interface Env {
   LEADS_KV?: KVNamespace;
-  LEAD_NOTIFY_TO?: string;   // hello@cl-analysis.com (set in Cloudflare dashboard)
-  LEAD_NOTIFY_FROM?: string; // noreply@cl-analysis.com
+  RESEND_API_KEY?: string;
+  LEAD_NOTIFY_TO?: string;   // josh@cl-analysis.com (set in Cloudflare dashboard)
+  LEAD_NOTIFY_FROM?: string; // CL Analysis <notifications@cl-analysis.com>
 }
 
 interface LeadPayload {
@@ -85,10 +88,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
     }
   }
 
-  // 2. Email via MailChannels (free for Cloudflare Workers/Pages)
-  const to = env.LEAD_NOTIFY_TO ?? 'hello@cl-analysis.com';
-  const from = env.LEAD_NOTIFY_FROM ?? 'noreply@cl-analysis.com';
-
+  // 2. Email notification via Resend
   const subject = `New consult request — ${payload.brand}`;
   const html = `
     <div style="font-family: Georgia, serif; max-width: 600px;">
@@ -106,31 +106,8 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
       </table>
     </div>
   `;
-
-  try {
-    const resp = await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: to }] }],
-        from: { email: from, name: 'CL Analysis · Lead Form' },
-        subject,
-        content: [
-          { type: 'text/html', value: html },
-          { type: 'text/plain', value: `New consult request from ${payload.name} (${payload.brand}). Email: ${payload.email}.` },
-        ],
-        reply_to: { email: payload.email, name: payload.name },
-      }),
-    });
-
-    if (!resp.ok) {
-      const t = await resp.text();
-      console.error('MailChannels failed', resp.status, t);
-      // Still return success to user — we have the KV record
-    }
-  } catch (e) {
-    console.error('email send error', e);
-  }
+  const text = `New consult request from ${payload.name} (${payload.brand}). Email: ${payload.email}.`;
+  await sendNotification(env, { subject, html, text, replyTo: payload.email });
 
   return new Response(JSON.stringify({ ok: true }), {
     status: 200, headers: { 'content-type': 'application/json' },
