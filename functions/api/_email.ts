@@ -3,7 +3,7 @@
 
 export interface EmailEnv {
   RESEND_API_KEY?: string;
-  LEAD_NOTIFY_TO?: string;   // default joshp205@gmail.com
+  LEAD_NOTIFY_TO?: string;   // default josh@cl-analysis.com (Cloudflare Email Routing → Gmail)
   LEAD_NOTIFY_FROM?: string; // default "Josh Patrick — CLA <hello@cl-analysis.com>"
 }
 
@@ -15,9 +15,9 @@ export async function sendNotification(
     console.error('RESEND_API_KEY not set — skipping email');
     return;
   }
-  // Notifications go to Josh's inbox; FROM uses the Resend-verified
-  // cl-analysis.com domain (matches the proven-good wizard sender).
-  const to = env.LEAD_NOTIFY_TO ?? 'joshp205@gmail.com';
+  // Notifications go to the CLA business address (Cloudflare Email Routing
+  // forwards it to Gmail); FROM uses the Resend-verified cl-analysis.com domain.
+  const to = env.LEAD_NOTIFY_TO ?? 'josh@cl-analysis.com';
   const from = env.LEAD_NOTIFY_FROM ?? 'Josh Patrick — CLA <hello@cl-analysis.com>';
 
   try {
