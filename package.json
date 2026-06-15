@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "deploy": "astro build && npx wrangler pages deploy dist --branch main --commit-dirty=true",
     "astro": "astro"
   },
   "dependencies": {
