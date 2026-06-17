@@ -1,17 +1,32 @@
 ---
-// Live Leaflet OSM map. Centered on Davie FL (placeholder). 5-mile radius + subject + comp pins.
+// Live Leaflet OSM map: subject + lettered competitor pins inside a trade-area ring.
+// Comp positions/labels come from the shared genComps generator so the dots, their
+// A.. letters, the distance chart, and the "nearest comp" stat all stay in sync.
+import { genComps, compOffset } from '../lib/tradeComps.js';
 interface Props {
   id?: string;
   center?: [number, number];
   zoom?: number;
+  radiusMi?: number;
+  compCount?: number;
+  nearestMi?: number;
 }
 const {
   id = 'cla-trade-map',
   center = [26.0628, -80.2528],
-  zoom = 11
+  zoom = 11,
+  radiusMi = 5,
+  compCount = 10,
+  nearestMi = 0.5,
 } = Astro.props;
+
+const comps = genComps(compCount, radiusMi, nearestMi).map((c) => {
+  const { dlat, dlng } = compOffset(c.distMi, c.bearing, center[0]);
+  return { letter: c.letter, dlat, dlng };
+});
 ---
-<div id={id} class="trade-map" data-center={center.join(',')} data-zoom={zoom}></div>
+<div id={id} class="trade-map" data-center={center.join(',')} data-zoom={zoom}
+  data-radius-mi={radiusMi} data-comps={JSON.stringify(comps)}></div>
 
 <style>
   .trade-map { position: absolute; inset: 0; }
@@ -25,9 +40,16 @@ const {
     box-shadow: 0 0 0 2px rgba(125,143,184,0.35), 0 2px 4px rgba(0,0,0,0.35);
   }
   .trade-map :global(.comp-pin) {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--cocoa); border: 2px solid #fefdfa;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    display: block; width: 13px; height: 13px; border-radius: 50%;
+    background: #ff6a1a; border: 2px solid #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.5);
+  }
+  .trade-map :global(.comp-tag) {
+    position: absolute; left: 14px; top: -4px;
+    font-family: var(--mono); font-size: 10px; font-weight: 700; line-height: 1;
+    color: #b23c0c; background: rgba(254,253,250,0.92);
+    padding: 1px 3px; border-radius: 2px; white-space: nowrap;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
   }
 </style>
 
@@ -37,6 +59,9 @@ const {
   function initMap(el: HTMLElement) {
     const [lat, lng] = (el.dataset.center || '26.0628,-80.2528').split(',').map(Number);
     const zoom = Number(el.dataset.zoom || 11);
+    const radiusMi = Number(el.dataset.radiusMi || 5);
+    let comps: { letter: string; dlat: number; dlng: number }[] = [];
+    try { comps = JSON.parse(el.dataset.comps || '[]'); } catch (e) { comps = []; }
     const center: [number, number] = [lat, lng];
 
     const map = L.map(el, {
@@ -53,7 +78,7 @@ const {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
     L.circle(center, {
-      radius: 8047,
+      radius: radiusMi * 1609,
       color: '#0a0a0a',
       weight: 1.2,
       opacity: 0.55,
@@ -62,27 +87,25 @@ const {
       dashArray: '5,3',
     }).addTo(map);
 
+    // lettered competitor pins (bright orange, labeled A..) placed at real distances
+    comps.forEach((c) => {
+      const icon = L.divIcon({
+        className: '',
+        html: `<span class="comp-pin"></span><span class="comp-tag">${c.letter}</span>`,
+        iconSize: [13, 13],
+        iconAnchor: [6, 6],
+      });
+      L.marker([lat + c.dlat, lng + c.dlng], { icon }).addTo(map);
+    });
+
+    // subject on top of the comps
     const youIcon = L.divIcon({
       className: '',
       html: '<div class="you-pin"></div>',
       iconSize: [22, 22],
       iconAnchor: [11, 11],
     });
-    L.marker(center, { icon: youIcon }).addTo(map);
-
-    const compIcon = L.divIcon({
-      className: '',
-      html: '<div class="comp-pin"></div>',
-      iconSize: [14, 14],
-      iconAnchor: [7, 7],
-    });
-
-    const comps: [number, number][] = [
-      [26.0934, -80.2434], [26.0445, -80.2778], [26.0312, -80.1989], [26.0828, -80.3056],
-      [26.0078, -80.2456], [26.0712, -80.2123], [26.0578, -80.3201], [26.0245, -80.2334],
-      [26.0890, -80.1845], [26.0123, -80.3034],
-    ];
-    comps.forEach(c => L.marker(c, { icon: compIcon }).addTo(map));
+    L.marker(center, { icon: youIcon, zIndexOffset: 1000 }).addTo(map);
 
     setTimeout(() => map.invalidateSize(), 200);
   }
